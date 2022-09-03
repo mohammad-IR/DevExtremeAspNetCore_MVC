@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+namespace DevExtremeAspNetCoreApp3.Controllers
+{
+    public class HomeController : Controller
+    {
+        public HomeController()
+        {
+
+        }
+        public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Test()
+        {
+            return View();
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error() {
+            return View();
+        }
+    }
+}
