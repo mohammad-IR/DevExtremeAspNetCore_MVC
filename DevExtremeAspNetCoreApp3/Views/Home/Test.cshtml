@@ -1,6 +1,6 @@
 ﻿<div id="data-grid-demo">
     @(Html.DevExtreme().DataGrid<TableTest>()
-        .ID("gridContainer")
+        .ID("Id")
         .Paging(paging => paging.Enabled(false))
         .ShowBorders(true)
         .Editing(editing =>
@@ -21,15 +21,15 @@
 
             columns.AddFor(m => m.PhoneNumber);
 
-            columns.AddFor(m => m.DateOfBirth)
+            columns.AddFor(m => m.DateOfBirth).DataType(GridColumnDataType.Date)
             .Width(170);
 
             columns.AddFor(m => m.Id)
             .Width(125)
             .Lookup(lookup => lookup
-            .DataSource(d => d.Mvc().Controller("Home").LoadAction("Get").Key("ID"))
-            .DisplayExpr("Name")
-            .ValueExpr("ID")
+            .DataSource(d => d.Mvc().Controller("Datas").LoadAction("Get").Key("Id"))
+            .DisplayExpr("Id")
+            .ValueExpr("Id")
             );
 
             columns.AddFor(m => m.DateOfBirth);
@@ -38,9 +38,9 @@
         .Controller("Datas")
         .LoadAction("Get")
         .UpdateAction("Put")
-        .InsertAction("Post")
+        .InsertAction("Patch")
         .DeleteAction("Delete")
-        .Key("ID")
+        .Key("Id")
         )
         )
 

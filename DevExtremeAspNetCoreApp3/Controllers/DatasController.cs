@@ -2,10 +2,9 @@
 using DevExtremeAspNetCoreApp3.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
 namespace DevExtremeAspNetCoreApp3.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class DatasController : ControllerBase
     {
@@ -17,7 +16,7 @@ namespace DevExtremeAspNetCoreApp3.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_db.TableTests);
+            return Ok(_db.TableTests.ToList());
         }
         [HttpPost]
         public IActionResult Post(TableTest data)
